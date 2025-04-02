@@ -1,0 +1,22 @@
+{% extends 'backend/base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+
+{% if articles %}
+  <div class="news-grid">
+    {% for article in articles %}
+      <div class="news-card">
+        <img src="{{ article.urlToImage }}" alt="News Image">
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.description }}</p>
+        <a href="{{ article.url }}" target="_blank" class="read-more">Read More</a>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p>No results found for "{{ query }}".</p>
+{% endif %}
+{% endblock %}

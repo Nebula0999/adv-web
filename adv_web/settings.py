@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+#API_KEY = config('API_KEY')
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'backend.apps.BackendConfig',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +128,16 @@ STATICFILES_DIRS = [BASE_DIR / 'backend/static']
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+'''EXTERNAL_API_CONFIG = {
+    'BASE_URL': 'https://newsapi.org/v2/',
+    'API_KEY': API_KEY,
+    'API_SECRET': API_SECRET,
+    'TIMEOUT': 30,  # Request timeout in seconds
+}'''
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+LOGIN_REDIRECT_URL = '/'
